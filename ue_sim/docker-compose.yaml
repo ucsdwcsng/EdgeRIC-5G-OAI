@@ -1,0 +1,57 @@
+services:
+    oai-nr-ue:
+        image: my-oai-nr-ue-image
+        #image: oaisoftwarealliance/oai-nr-ue:develop
+        container_name: rfsim5g-oai-nr-ue
+        cap_drop:
+            - ALL
+        cap_add:
+            - NET_ADMIN  # for interface bringup
+            - NET_RAW    # for ping
+        environment:
+            USE_ADDITIONAL_OPTIONS: -E --uicc0.imsi 001010000000001 -C 3619200000 -r 106 --numerology 1 --ssb 516 --rfsim --rfsimulator.serveraddr 192.168.70.129 --sa
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.150
+        devices:
+             - /dev/net/tun:/dev/net/tun
+        volumes:
+            - ./nrue.uicc.conf:/opt/oai-nr-ue/etc/nr-ue.conf
+        healthcheck:
+            test: /bin/bash -c "pgrep nr-uesoftmodem"
+            interval: 10s
+            timeout: 5s
+            retries: 5
+    oai-nr-ue2:
+        image: my-oai-nr-ue-image
+        #image: oaisoftwarealliance/oai-nr-ue:develop
+        container_name: rfsim5g-oai-nr-ue2
+        cap_drop:
+            - ALL
+        cap_add:
+            - NET_ADMIN  # for interface bringup
+            - NET_RAW    # for ping
+        environment:
+            USE_ADDITIONAL_OPTIONS: -E --uicc0.imsi 001010000000002 -C 3619200000 -r 106 --numerology 1 --ssb 516 --rfsim --rfsimulator.serveraddr 192.168.70.129 --sa
+        networks:
+            public_net:
+                ipv4_address: 192.168.70.151
+        devices:
+             - /dev/net/tun:/dev/net/tun
+        volumes:
+            - ./nrue.uicc.conf:/opt/oai-nr-ue/etc/nr-ue.conf
+        healthcheck:
+            test: /bin/bash -c "pgrep nr-uesoftmodem"
+            interval: 10s
+            timeout: 5s
+            retries: 5
+networks:
+    public_net:
+        driver: bridge
+        external: true
+        name: oai-cn5g-public-net
+        ipam:
+            config:
+                - subnet: 192.168.70.128/26
+        driver_opts:
+            com.docker.network.bridge.name: "oai-cn5g"
