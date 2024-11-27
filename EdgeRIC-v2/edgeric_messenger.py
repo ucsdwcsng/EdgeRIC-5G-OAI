@@ -97,13 +97,6 @@ class EdgericMessenger:
             print("RT-E2 Policy (MCS): \n")
             print(f"Sent to RAN: {msg} \n")
 
-# agent=EdgericMessenger("mcs")
-# i=0
-# while(1):
-#     i=i+1
-#     if (i % 1000 == 0):
-#         agent.get_metrics(1)
-#     else:
-#         agent.get_metrics(0)
+
 
 
