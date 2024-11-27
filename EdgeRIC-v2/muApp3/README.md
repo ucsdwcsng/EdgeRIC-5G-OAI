@@ -4,6 +4,7 @@
 cd docker/prometheus
 docker compose up -d
 ```
+Check https://localhost:9090 to see whether Prometheus can run correctly.
 ## Run Grafana docker
 ```bash
 cd docker/grafana
