@@ -26,7 +26,7 @@ docker network connect monitoring grafana
    - Set Scrape interval to 25ms and Query timeout to 100ms
    - Save and test Data Source
 ``` bash
-
+python3 muApp3_monitor_grafana.py
 ```
 
 
