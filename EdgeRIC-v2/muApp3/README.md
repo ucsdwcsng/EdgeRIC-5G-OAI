@@ -28,6 +28,7 @@ docker network connect monitoring grafana
 ``` bash
 python3 muApp3_monitor_grafana.py
 ```
+If you encounter any issues regarding monitoring, feel free to send an email to yij040@ucsd.edu
 
 
 
