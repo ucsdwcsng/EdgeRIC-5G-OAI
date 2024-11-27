@@ -17,6 +17,15 @@ docker network create monitoring
 docker network connect monitoring prometheus
 docker network connect monitoring grafana
 ```
+## Monitor the Network
+1. Login to grafana using username: admin password: admin
+2. Import the json file to create the dashboard.
+3. Use the sile menu to connect data source
+   - In Data source section choose add new data source and then choose Prometheus
+   - In the connection field write http://prometheus:9090
+   - Set Scrape interval to 25ms and Query timeout to 100ms
+   - Save and test Data Source
+
 
 
 
