@@ -1,3 +1,4 @@
+# Edgeric for OAI
 ## Run 5G core
 ``` bash
 cd oai-cn5g
