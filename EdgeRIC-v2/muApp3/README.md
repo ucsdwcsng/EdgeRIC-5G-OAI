@@ -25,6 +25,9 @@ docker network connect monitoring grafana
    - In the connection field write http://prometheus:9090
    - Set Scrape interval to 25ms and Query timeout to 100ms
    - Save and test Data Source
+``` bash
+
+```
 
 
 
