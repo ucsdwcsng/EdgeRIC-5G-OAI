@@ -1,5 +1,9 @@
 # Edgeric for OAI
 Check our website for More information about EdgeRIC https://edgeric.github.io/
+## Prerequisites
+``` bash
+sudo apt install libzmq-dev
+```
 ## Run 5G core
 ``` bash
 cd oai-cn5g
