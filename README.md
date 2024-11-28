@@ -36,6 +36,7 @@ docker exec -it oai-ext-dn iperf3 -u -t 86400 -i 1 -fk -B 192.168.70.135 -b 20M 
 If you encounter any issues regarding setting up simulation, feel free to send an email to qiz066@ucsd.edu
 
 ## Run 5G RAN Over the air
-
+```bash
 cd openairinterface5g/cmake_targets/ran_build/build
 sudo ./nr-softmodem -O ../../../targets/PROJECTS/GENERIC-NR-5GC/CONF/gnb.sa.band78.fr1.162PRB.2x2.usrpn300.conf --sa --usrp-tx-thread-config 1
+```
