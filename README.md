@@ -32,4 +32,4 @@ docker exec -it rfsim5g-oai-nr-ue ifconfig
 docker exec -it rfsim5g-oai-nr-ue iperf3 -s -B 10.0.0.x
 docker exec -it oai-ext-dn iperf3 -u -t 86400 -i 1 -fk -B 192.168.70.135 -b 20M -c 10.0.0.x
 ```
-If you encounter any issues regarding setting up simulation , feel free to send an email to qiz066@ucsd.edu
+If you encounter any issues regarding setting up simulation, feel free to send an email to qiz066@ucsd.edu
