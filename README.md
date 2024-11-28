@@ -14,8 +14,8 @@ docker compose up -d
 ``` bash
 cd openairinterface5g/cmake_targets
 ./build_oai -I
+./build_oai -I -W USRP  #if you need over-the-air mode
 ./build_oai --gNB
-./build_oai -W USRP--gNB
 ```
 ## Run 5G RAN simulation 
 ``` bash
