@@ -4,7 +4,7 @@ Check our website for More information about EdgeRIC https://edgeric.github.io/
 This repository is under development 
 ## Prerequisites
 ``` bash
-sudo apt install libzmq-dev
+sudo apt install libzmq3-dev
 sudo apt install protobuf-compiler #version should be 3.21.12. you can download it form https://github.com/protocolbuffers/protobuf/tree/v3.21.12 
 ```
 ## Run 5G core
