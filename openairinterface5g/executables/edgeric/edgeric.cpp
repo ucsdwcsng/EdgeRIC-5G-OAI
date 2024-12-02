@@ -68,11 +68,11 @@ zmq::socket_t subscriber_mcs(context, ZMQ_SUB);
 
 void edgeric::init() {
     
-    //publisher.bind("tcp://localhost:5555");
-    publisher.bind("tcp://137.110.111.11:5555");
+    publisher.bind("tcp://127.0.0.1:5555");
+    //publisher.bind("tcp://137.110.111.11:5555");
 
-    //subscriber_weights.connect("tcp://localhost:5556");
-    subscriber_weights.connect("tcp://137.110.112.104:5556");
+    subscriber_weights.connect("tcp://127.0.0.1:5556");
+    //subscriber_weights.connect("tcp://137.110.112.104:5556");
     zmq_setsockopt(subscriber_weights, ZMQ_SUBSCRIBE, "", 0);
     // subscriber_weights.setsockopt(ZMQ_SUBSCRIBE, "", 0);
     int conflate = 1;
@@ -80,8 +80,8 @@ void edgeric::init() {
     // zmq_setsockopt(subscriber_weights, ZMQ_CONFLATE, &conflate, sizeof(conflate));
 
 
-    //subscriber_mcs.connect("tcp://localhost:5557");
-    subscriber_mcs.connect("tcp://137.110.112.104:5557");
+    subscriber_mcs.connect("tcp://127.0.0.1:5557");
+    //subscriber_mcs.connect("tcp://137.110.112.104:5557");
     subscriber_mcs.setsockopt(ZMQ_SUBSCRIBE, "", 0);
     // int conflate = 1;
     subscriber_mcs.setsockopt(ZMQ_CONFLATE, &conflate, sizeof(conflate));
