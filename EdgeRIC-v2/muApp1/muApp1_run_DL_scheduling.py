@@ -142,6 +142,8 @@ def algo2_maxWeight_multi():
     brate = np.sum(txb)
     total_brate.append(brate)
 
+    CQIs=np.ones_like(CQIs)
+
     if min(CQIs) > 0: 
         sum_CQI = np.sum(CQIs)
         sum_BL = np.sum(BLs) 
@@ -173,6 +175,8 @@ def algo3_propFair_multi(avg_CQIs):
     txb = [data['tx_bytes'] for data in ue_data.values()]
     brate = np.sum(txb)
     total_brate.append(brate)
+
+    CQIs=np.ones_like(CQIs) ###### Ali todo - update this to do avg_thrpt over last 500 steps
 
     if min(CQIs) > 0: 
         gamma = 0.1 
@@ -207,6 +211,7 @@ def algo4_roundrobin_multi(rr_cnt):
     total_brate.append(brate)
     index = rr_cnt % numues
     rr_cnt += 1
+    CQIs=np.ones_like(CQIs)
 
     if min(CQIs) > 0:  # Check if all CQIs are positive
         new_weights = np.zeros(numues)
@@ -268,7 +273,7 @@ def eval_loop_model(num_episodes, out_dir):
             action = torch.squeeze(action)
         
         for ue in range(numues):
-            percentage_RBG = action[ue] / sum(action)
+            percentage_RBG = abs(action[ue]) / sum(abs(action)) # Ushasi - accounting for negative RL weights
             weight[ue*2+1] = percentage_RBG
             weight[ue*2] = RNTIs[ue]
 
