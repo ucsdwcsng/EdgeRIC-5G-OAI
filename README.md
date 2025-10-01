@@ -1,5 +1,6 @@
 # Edgeric for OAI
-Check our website for More information about EdgeRIC https://edgeric.github.io/
+
+This project integrates EdgeRIC with OpenAirInterface (OAI). We developed a wrapper that enables seamless embedding of EdgeRIC into OAI. In addition, we have consolidated and refined the Docker configurations to simplify deployment and testing. Check our website for More information about EdgeRIC https://edgeric.github.io/
 
 This repository is under development 
 ## Prerequisites
